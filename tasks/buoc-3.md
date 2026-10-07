@@ -117,10 +117,13 @@ Tải file `outputs/report.json` từ artifacts của hai lần chạy để so 
 
 | Chỉ số | Bước 2 (22.361 mẫu) | Bước 3 (44.722 mẫu) |
 |---|---|---|
-| f1_score | ? | ? |
-| accuracy | ? | ? |
+| f1_score | 0.7149 | 0.7354 |
+| accuracy | 0.8740 | 0.8820 |
 
-Điền vào bảng trên dựa trên kết quả thực tế của bạn.
+Các chỉ số trên được đo cục bộ với cùng bộ siêu tham số (`n_estimators=200`,
+`learning_rate=0.1`, `max_depth=5`) trên holdout 500 mẫu. Khi thêm batch 2, F1 tăng
+0.0205 và accuracy tăng 0.0080 trong lần chạy này; điều đó không đảm bảo dữ liệu bổ sung
+sẽ luôn cải thiện kết quả ở các lần chia dữ liệu khác.
 
 **Đừng giả định rằng thêm dữ liệu sẽ luôn làm mô hình tốt hơn.** Với bộ dữ liệu này, hai nửa dữ liệu được chia ngẫu nhiên từ cùng một nguồn, nên chúng có cùng phân phối. Gấp đôi dữ liệu trong tình huống đó thường chỉ làm chỉ số dao động trong khoảng nhỏ, thậm chí giảm nhẹ — mô hình đã học gần hết những gì có thể học từ 22.361 mẫu đầu tiên.
 
